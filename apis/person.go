@@ -1,15 +1,15 @@
 package apis
 
 import (
-	"github.com/gin-gonic/gin"
-	"net/http"
-	"log"
-	. "gin_blog/models"
+	. "blog_gin/models"
 	"fmt"
+	"github.com/gin-gonic/gin"
+	"log"
+	"net/http"
 )
 
 func IndexApi(c *gin.Context) {
-	c.String(http.StatusOK, "It works")
+	c.String(http.StatusOK, "it is works")
 }
 
 func AddPersonApi(c *gin.Context) {

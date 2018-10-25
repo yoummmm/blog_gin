@@ -1,7 +1,7 @@
 package models
 
 import (
-	db "gin_blog/database"
+	db "blog_gin/database"
 )
 
 type Person struct {

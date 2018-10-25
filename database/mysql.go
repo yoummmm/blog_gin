@@ -10,7 +10,7 @@ var SqlDB *sql.DB
 
 func init() {
 	var err error
-	SqlDB, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/person?parseTime=true")
+	SqlDB, err := sql.Open("mysql", "test:Test123!@#@tcp(119.3.11.44:3306)/blog?parseTime=true")
 	if err != nil {
 		log.Fatal(err.Error())
 	}
