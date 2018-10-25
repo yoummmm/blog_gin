@@ -4,7 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"log"
-	. "gin_blog/models"
+	. "blog_gin/models"
 	"fmt"
 )
 
