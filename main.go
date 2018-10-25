@@ -1,11 +1,11 @@
 package main
 
 import (
-	db "gin_blog/database"
+	db "blog_gin/database"
 )
 
 func main() {
 	defer db.SqlDB.Close()
 	router := initRouter()
-	router.Run(":8000")
+	router.Run(":8001")
 }
