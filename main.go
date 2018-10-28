@@ -5,13 +5,14 @@ import (
 	"blog_gin/pkg/setting"
 	"fmt"
 	"net/http"
+	"blog_gin/router"
 )
 
 func main() {
 	defer db.SqlDB.Close()
-	
-	router := initRouter()
-	
+
+	router := router.InitRouter()
+
 	ser := &http.Server{
 		Addr:              fmt.Sprintf(":%d", setting.HttpPort),
 		Handler:           router,

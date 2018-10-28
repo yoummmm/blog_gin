@@ -6,13 +6,14 @@ import (
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
+	"blog_gin/models"
 )
 
 func IndexApi(c *gin.Context) {
 	c.String(http.StatusOK, "it is works")
 }
 func GetPersonsApi(c *gin.Context) {
-	p := Person{}
+	p := models.Person{}
 	persons, err := p.GetPersons()
 	if err != nil {
 		log.Fatalln(err)
