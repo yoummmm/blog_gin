@@ -9,9 +9,9 @@ import (
 
 func main() {
 	defer db.SqlDB.Close()
-
+	
 	router := initRouter()
-
+	
 	ser := &http.Server{
 		Addr:              fmt.Sprintf(":%d", setting.HttpPort),
 		Handler:           router,

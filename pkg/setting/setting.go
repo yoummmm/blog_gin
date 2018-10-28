@@ -49,3 +49,12 @@ func LoadApp() {
 	}
 	PageSize = server.Key("PAGE_SIZE").MustInt(12)
 }
+
+/*func LoadDb()  {
+	dbser, err := cfg.GetSection("database")
+	if err != nil {
+		log.Fatal("db配置文件打开错误 'conf/app.ini': %v", err)
+	}
+	
+}
+*/

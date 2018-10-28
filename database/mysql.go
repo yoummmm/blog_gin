@@ -10,7 +10,7 @@ var SqlDB *sql.DB
 
 func init() {
 	var err error
-
+	
 	SqlDB, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/blog?parseTime=true")
 
 	if err != nil {
