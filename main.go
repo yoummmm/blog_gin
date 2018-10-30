@@ -3,9 +3,9 @@ package main
 import (
 	db "blog_gin/database"
 	"blog_gin/pkg/setting"
+	"blog_gin/router"
 	"fmt"
 	"net/http"
-	"blog_gin/router"
 )
 
 func main() {

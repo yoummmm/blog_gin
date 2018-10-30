@@ -26,11 +26,23 @@ type Redis struct {
 	IdleTimeout time.Duration
 }
 
+type Mysql struct {
+	Host    string
+	Port    int8
+	Pwd     string
+	Type    string
+	User    string
+	DbName  string
+	Tab_pre string
+}
+
 var RedisSetting = &Redis{}
+var MysqlSetting = &Mysql{}
 
 func init() {
 	var err error
-	cfg, err = ini.Load("C:/Users/IT-XIA-PC/Desktop/blog_gin/src/blog_gin/conf/app.ini")
+	//cfg, err = ini.Load("C:/Users/IT-XIA-PC/Desktop/blog_gin/src/blog_gin/conf/app.ini")
+	cfg, err = ini.Load("conf/app.ini")
 	if err != nil {
 		log.Fatal("gen配置文件打开错误 'conf/app.ini': %v", err)
 	}
@@ -38,6 +50,8 @@ func init() {
 	LoadBase()
 	LoadServer()
 	LoadApp()
+	mapTo("database", MysqlSetting)
+
 	RedisSetting.IdleTimeout = RedisSetting.IdleTimeout * time.Second
 }
 
