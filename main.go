@@ -1,18 +1,18 @@
 package main
 
 import (
-	db "blog_gin/database"
 	"blog_gin/pkg/setting"
 	"blog_gin/router"
 	"fmt"
+	"github.com/go-xorm/xorm"
 	"net/http"
 )
 
+var db_engine *xorm.Engine
 func main() {
-	defer db.SqlDB.Close()
-
+	
 	router := router.InitRouter()
-
+	
 	ser := &http.Server{
 		Addr:              fmt.Sprintf(":%d", setting.HttpPort),
 		Handler:           router,
