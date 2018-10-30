@@ -18,16 +18,27 @@ var (
 	PageSize int
 )
 
+type Redis struct {
+	Host        string
+	Password    string
+	MaxIdle     int
+	MaxActive   int
+	IdleTimeout time.Duration
+}
+
+var RedisSetting = &Redis{}
+
 func init() {
 	var err error
 	cfg, err = ini.Load("C:/Users/IT-XIA-PC/Desktop/blog_gin/src/blog_gin/conf/app.ini")
 	if err != nil {
 		log.Fatal("gen配置文件打开错误 'conf/app.ini': %v", err)
 	}
-
+	mapTo("redis", RedisSetting)
 	LoadBase()
 	LoadServer()
 	LoadApp()
+	RedisSetting.IdleTimeout = RedisSetting.IdleTimeout * time.Second
 }
 
 func LoadBase() {
@@ -36,7 +47,6 @@ func LoadBase() {
 
 func LoadServer() {
 	servers := cfg.Section("server")
-
 	HttpPort = servers.Key("HTTP_PORT").MustInt(8001)
 	ReadTimeOut = time.Duration(servers.Key("READ_TIMEOUT").MustInt(60)) * time.Second
 	WriteTimeOut = time.Duration(servers.Key("WRITE_TIMEOUT").MustInt(60)) * time.Second
@@ -50,11 +60,9 @@ func LoadApp() {
 	PageSize = server.Key("PAGE_SIZE").MustInt(12)
 }
 
-/*func LoadDb()  {
-	dbser, err := cfg.GetSection("database")
+func mapTo(section string, v interface{}) {
+	err := cfg.Section(section).MapTo(v)
 	if err != nil {
-		log.Fatal("db配置文件打开错误 'conf/app.ini': %v", err)
+		log.Fatalf("Cfg.MapTo RedisSetting err:%v", err)
 	}
-	
 }
-*/
