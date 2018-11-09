@@ -41,8 +41,8 @@ var MysqlSetting = &Mysql{}
 
 func init() {
 	var err error
-	//cfg, err = ini.Load("conf/app.ini")
-	cfg, err = ini.Load("C:/Users/IT-XIA-PC/Desktop/blog_gin/src/blog_gin/conf/app.ini")
+	cfg, err = ini.Load("conf/app.ini")
+	//cfg, err = ini.Load("C:/Users/IT-XIA-PC/Desktop/blog_gin/src/blog_gin/conf/app.ini")
 	if err != nil {
 		log.Fatal("gen配置文件打开错误 'conf/app.ini': %v", err)
 	}
