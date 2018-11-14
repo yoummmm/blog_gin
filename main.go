@@ -8,7 +8,8 @@ import (
 	"net/http"
 )
 
-var db_engine *xorm.Engine
+var Engine *xorm.Engine
+
 func main() {
 	
 	router := router.InitRouter()
