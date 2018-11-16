@@ -4,11 +4,10 @@ import (
 	"blog_gin/pkg/setting"
 	"blog_gin/router"
 	"fmt"
-	"github.com/go-xorm/xorm"
+	_ "github.com/go-sql-driver/mysql"
 	"net/http"
 )
 
-var Engine *xorm.Engine
 
 func main() {
 	

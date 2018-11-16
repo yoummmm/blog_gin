@@ -1,18 +1,11 @@
 package v1
 
 import (
-	"blog_gin/models"
+	"blog_gin/db"
 	"github.com/gin-gonic/gin"
-	"net/http"
+	_ "github.com/go-sql-driver/mysql"
 )
 
-//博客列表
-func ListBlog(c *gin.Context)  {
-		B := models.Blog{}
-		res,err := B.ListBlogs(0)
-		if err != nil{
-			c.JSON(http.StatusOK, gin.H{
-				"res": res,
-			})
-		}
+func ListBlog(c *gin.Context){
+	db.Listblog()
 }

@@ -14,7 +14,7 @@ func InitRouter() *gin.Engine {
 	apiv1 := router.Group("/api/v1")
 	{
 		apiv1.GET("/",v1.HomeApi)
-		apiv1.GET("listblog",v1.ListBlog)
+		apiv1.GET("/listblog",v1.ListBlog)
 	}
 		
 	//创建不同版本的接口
